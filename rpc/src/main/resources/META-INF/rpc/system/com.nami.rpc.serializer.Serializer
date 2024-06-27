@@ -1,0 +1,2 @@
+a=com.nami.rpc.serializer.JdkSerializer
+b=com.nami.rpc.serializer.HessianSerializer

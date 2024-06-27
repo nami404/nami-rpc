@@ -1,0 +1,2 @@
+c=com.nami.rpc.serializer.JsonSerializer
+d=com.nami.rpc.serializer.KryoSerializer
