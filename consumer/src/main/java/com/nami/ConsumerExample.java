@@ -12,10 +12,10 @@ import com.nami.service.UserService;
 public class ConsumerExample {
     public static void main(String[] args) {
         // 静态代理
-        UserService userService = new UserServiceProxy();
+//        UserService userService = new UserServiceProxy();
 
         // 动态代理
-//        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
+        UserService userService = ServiceProxyFactory.getProxy(UserService.class);
         User user = new User();
         user.setName("nami404");
         // 调用
@@ -25,5 +25,8 @@ public class ConsumerExample {
         } else {
             System.out.println("user == null");
         }
+
+        long number = userService.getNumber();
+        System.out.println(number);
     }
 }
