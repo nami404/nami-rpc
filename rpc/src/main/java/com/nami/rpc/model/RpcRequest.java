@@ -1,6 +1,5 @@
 package com.nami.rpc.model;
 
-import com.nami.rpc.serializer.Serializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,7 +31,7 @@ public class RpcRequest implements Serializable {
     /**
      * 参数类型列表
      */
-    private Class<?>[] parameterType;
+    private Class<?>[] parameterTypes;
 
     /**
      * 参数列表

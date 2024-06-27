@@ -1,5 +1,6 @@
 package com.nami.rpc.config;
 
+import com.nami.rpc.serializer.SerializerKeys;
 import lombok.Data;
 
 /**
@@ -33,4 +34,6 @@ public class RpcConfig {
      * 模拟调用
      */
     private boolean mock = false;
+
+    private String serializer = SerializerKeys.JDK;
 }

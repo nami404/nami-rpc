@@ -2,9 +2,13 @@ package com.nami.rpc.proxy;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import com.nami.rpc.RpcApplication;
+import com.nami.rpc.config.RpcConfig;
 import com.nami.rpc.model.RpcRequest;
 import com.nami.rpc.model.RpcResponse;
 import com.nami.rpc.serializer.JdkSerializer;
+import com.nami.rpc.serializer.Serializer;
+import com.nami.rpc.serializer.SerializerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
@@ -26,13 +30,13 @@ public class ServiceProxy implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         //指定序列化器
-        JdkSerializer serializer = new JdkSerializer();
+        final Serializer serializer = SerializerFactory.getInstance(RpcApplication.getRpcConfig().getSerializer());
 
         //构造请求
         RpcRequest rpcRequest = RpcRequest.builder()
                 .serviceName(method.getDeclaringClass().getName())
                 .methodName(method.getName())
-                .parameterType(method.getParameterTypes())
+                .parameterTypes(method.getParameterTypes())
                 .args(args)
                 .build();
 

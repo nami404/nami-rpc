@@ -1,0 +1,4 @@
+jdk=com.nami.rpc.serializer.JdkSerializer
+hessian=com.nami.rpc.serializer.HessianSerializer
+json=com.nami.rpc.serializer.JsonSerializer
+kryo=com.nami.rpc.serializer.KryoSerializer
